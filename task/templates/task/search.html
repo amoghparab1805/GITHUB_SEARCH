@@ -1,0 +1,27 @@
+{% extends 'task/base.html' %}
+{% block body %}
+<div class="container">
+	<br>
+	<form method="GET">
+	{% csrf_token %}
+    {{ form }}
+    <!--<input type="submit" value="Search" class="btn btn-primary" />-->
+    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+	</form>
+	{% if found %}
+		<h3>Hello {{git_username}}</h3>
+		<h5>Your Repositories are : </h5>
+		<ol>
+			{% for repo in repol %}
+			<li>
+				Name: <a href="{% url 'task:usercommit' repo.0 %}">{{repo.0}}</a>
+				<br>
+				Language: {{repo.1}}
+			</li>
+			{% endfor %}
+		</ol>
+	{% elif git_username != '' %}
+		<h4>No Such User Exist</h4>
+	{% endif %}
+</div>
+{% endblock %}

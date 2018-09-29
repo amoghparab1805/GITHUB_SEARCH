@@ -1,0 +1,18 @@
+{% extends 'task/base.html' %}
+{% block body %}
+<div class="container">
+	<h3><u>{{git_username}}</u> Your Commits for <u>{{repo_name}}</u> Are:</h3>
+	<br>
+	<p></p>
+	{% for i in commitl %}
+	<b>Message:</b> {{i.1}}
+	<br>
+	<b>Date:</b> {{i.0}}
+	<br>
+	<br>
+	{% empty %}
+	No Commit History Found!!<br>
+	<b>Zero</b> Commits
+	{% endfor %}
+</div>
+{% endblock %}

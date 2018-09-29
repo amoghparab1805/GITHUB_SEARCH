@@ -1,0 +1,16 @@
+{% extends 'task/base.html' %}
+{% block body %}
+<div class="container">
+{% if user.is_authenticated %}
+<br>
+<h3 style="text-align: center;">Hi {{ user.username }}!!</h3>
+<h6 style="text-align: center;">You Are Good To Go Now</h6>
+{% else %}
+<br>
+<h3 style="text-align: center;">Welcome To The DJ Unicode Page!!</h3>
+<br>
+<h5 style="text-align: center;">You Must Be Logged In To Get Started</h5>
+<h5 style="text-align: center;">If You Are Not A User You Can Sign Up</h5>
+{% endif %}
+</div>
+{% endblock %}

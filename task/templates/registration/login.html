@@ -1,0 +1,11 @@
+{% extends 'task/base.html' %}
+{% block body %}
+<div class="container-fluid">
+<h2>Login</h2>
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit" class="btn-primary">Log In</button>
+</form>
+</div>
+{% endblock %}
